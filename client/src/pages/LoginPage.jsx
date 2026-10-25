@@ -47,42 +47,66 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen bg-slate-100">
       {/* Left Brand Column */}
-      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between bg-blue-600 p-12 text-white">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-            <GraduationCap className="h-6 w-6 text-white" />
+      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 p-12 text-white">
+        {/* Decorative background blobs */}
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-indigo-600/20 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-violet-700/15 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-2xl" />
+
+        {/* Logo */}
+        <div className="relative flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm">
+            <GraduationCap className="h-6 w-6 text-indigo-300" />
           </div>
-          <span className="text-2xl font-bold tracking-tight">LearnHub</span>
+          <span className="text-2xl font-bold tracking-tight text-white">LearnHub</span>
         </div>
 
-        <div className="max-w-md space-y-4">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Learn. Grow. Achieve.
+        {/* Hero copy */}
+        <div className="relative max-w-md space-y-5">
+          <h1 className="text-4xl font-extrabold tracking-tight leading-tight text-white">
+            Learn. Grow.<br />
+            <span className="text-indigo-200">Achieve.</span>
           </h1>
-          <p className="text-base text-blue-100 leading-relaxed">
+          <p className="text-sm text-slate-200 leading-relaxed">
             Discover courses, manage your enrollments, and seamlessly join waitlists with instant FIFO promotions.
           </p>
+
+          {/* Feature list */}
+          <ul className="mt-2 space-y-2.5 text-sm text-slate-300">
+            {[
+              "Browse published courses with live seat counts",
+              "Enroll instantly or join the waitlist automatically",
+              "FIFO promotion when a seat opens up",
+              "Manage your enrollments from one place",
+            ].map((f) => (
+              <li key={f} className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-indigo-500/30 text-indigo-200 text-[10px] font-bold">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="rounded-xl bg-blue-700/60 p-5 backdrop-blur-sm border border-blue-500/30">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-200 mb-2">
+        {/* Demo credentials */}
+        <div className="relative rounded-xl bg-white/5 ring-1 ring-white/10 p-5 backdrop-blur-sm">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3">
             Assessment Demo Credentials
           </p>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => fillCredentials("admin@example.com", "password")}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 hover:bg-white/20 px-3 py-1.5 text-xs font-medium text-white transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/8 hover:bg-white/15 ring-1 ring-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors"
             >
-              <ShieldCheck className="h-3.5 w-3.5 text-blue-200" />
+              <ShieldCheck className="h-3.5 w-3.5 text-indigo-400" />
               <span>Admin: admin@example.com</span>
             </button>
             <button
               type="button"
               onClick={() => fillCredentials("student@example.com", "password")}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 hover:bg-white/20 px-3 py-1.5 text-xs font-medium text-white transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/8 hover:bg-white/15 ring-1 ring-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors"
             >
-              <User className="h-3.5 w-3.5 text-blue-200" />
+              <User className="h-3.5 w-3.5 text-indigo-400" />
               <span>Student: student@example.com</span>
             </button>
           </div>
@@ -169,3 +193,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

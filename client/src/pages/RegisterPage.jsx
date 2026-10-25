@@ -42,25 +42,49 @@ export default function RegisterPage() {
   return (
     <div className="flex min-h-screen bg-slate-100">
       {/* Left Brand Column */}
-      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between bg-blue-600 p-12 text-white">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-            <GraduationCap className="h-6 w-6 text-white" />
+      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 p-12 text-white">
+        {/* Decorative background blobs */}
+        <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-indigo-600/20 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 rounded-full bg-violet-700/15 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-2xl" />
+
+        {/* Logo */}
+        <div className="relative flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm">
+            <GraduationCap className="h-6 w-6 text-indigo-300" />
           </div>
-          <span className="text-2xl font-bold tracking-tight">LearnHub</span>
+          <span className="text-2xl font-bold tracking-tight text-white">LearnHub</span>
         </div>
 
-        <div className="max-w-md space-y-4">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Create Account
+        {/* Hero copy */}
+        <div className="relative max-w-md space-y-5">
+          <h1 className="text-4xl font-extrabold tracking-tight leading-tight text-white">
+            Start Your<br />
+            <span className="text-indigo-200">Learning Journey.</span>
           </h1>
-          <p className="text-base text-blue-100 leading-relaxed">
+          <p className="text-sm text-slate-200 leading-relaxed">
             Join LearnHub to browse our course catalog, register for open seats, and monitor your waitlists in real-time.
           </p>
+
+          {/* Feature list */}
+          <ul className="mt-2 space-y-2.5 text-sm text-slate-300">
+            {[
+              "Free to register — instant student account",
+              "Browse all published courses in one place",
+              "Enroll in open seats or join the waitlist",
+              "Get promoted automatically when a seat opens",
+            ].map((f) => (
+              <li key={f} className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-indigo-500/30 text-indigo-200 text-[10px] font-bold">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="rounded-xl bg-blue-700/60 p-4 text-xs text-blue-100 border border-blue-500/30">
-          Note: Public registration automatically provisions a student account.
+        {/* Note */}
+        <div className="relative rounded-xl bg-white/5 ring-1 ring-white/10 p-4 text-xs text-slate-300 backdrop-blur-sm">
+          Public registration automatically provisions a student account. Contact an administrator for admin access.
         </div>
       </div>
 
